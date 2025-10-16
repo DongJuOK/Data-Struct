@@ -9,97 +9,26 @@ private:
     struct Node
     {
         T data;
+        Node * previous;
         Node * next;
     };
 
     int size;
-
     Node * head;
-
-    Node * currentNode;
+    Node * tail;
 
 public:
     List()
     {
         size = 0;
         head = nullptr;
+        tail = nullptr;
     }
-
-    void push_front(T data)
-    {
-        Node * newNode = new Node;
-
-        newNode->data = data;
-
-        if (head == nullptr)
-        {
-            head = newNode;
-
-            newNode->next = nullptr;
-        }
-        else
-        {
-            newNode->next = head;
-
-            head = newNode;
-        }
-
-        size++;
-    }
-
-    void pop_front()
-    {
-        if (head == nullptr)
-        {
-            cout << "linked list is empty" << endl;
-        }
-        else
-        {
-            Node* deleteNode = head;
-
-            head = deleteNode->next;
-
-            delete deleteNode;
-
-            size--;
-        }
-    }
-
-    void push_back(T data)
-    {
-        Node * newNode = new Node;
-
-        newNode->data = data;
-
-        if (head == nullptr)
-        {
-            head = newNode;
-
-            newNode->next = nullptr;
-
-            currentNode = newNode;
-        }
-        else
-        {
-            currentNode->next = newNode;
-
-            newNode->next = nullptr;
-        }
-
-        size++;
-    }
-
 };
 
 int main()
 {
     List<int> list;
-
-    list.push_front(10);
-    list.push_front(5);
-
-    list.pop_front();
-    list.pop_front();
-
+    
     return 0;
 }
