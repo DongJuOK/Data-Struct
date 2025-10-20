@@ -9,12 +9,12 @@ private:
     struct Node
     {
         T data;
-        Node* next;
+        Node * next;
     };
 
     int size;
 
-    Node* head;
+    Node * head;
 
 public:
     List()
@@ -25,7 +25,7 @@ public:
 
     void push_front(T data)
     {
-        Node* newNode = new Node;
+        Node * newNode = new Node;
 
         newNode->data = data;
 
@@ -53,7 +53,7 @@ public:
         }
         else
         {
-            Node* deleteNode = head;
+            Node * deleteNode = head;
 
             head = deleteNode->next;
 
@@ -65,7 +65,7 @@ public:
 
     void push_back(T data)
     {
-        Node* newNode = new Node;
+        Node * newNode = new Node;
 
         newNode->data = data;
 
@@ -77,7 +77,7 @@ public:
         }
         else
         {
-            Node* currentNode = head;
+            Node * currentNode = head;
 
             while (currentNode->next != nullptr)
             {
@@ -98,8 +98,8 @@ public:
         }
         else
         {
-            Node* deleteNode = head;
-            Node* previousNode = nullptr;
+            Node * deleteNode = head;
+            Node * previousNode = nullptr;
 
             if (size == 1)
             {
@@ -125,7 +125,7 @@ public:
         size--;
     }
 
-    const bool& empty()
+    const bool & empty()
     {
         return (head == nullptr);
     }
