@@ -3,106 +3,106 @@
 using namespace std;
 
 template <typename T>
-class List
+class PriorityQueue
 {
 private:
-    struct Node
-    {
-        T data;
-        Node * next;
-    };
+    int index;
+    int capacity;
 
-    int size;
-    Node * head;
+    T * container;
 
 public:
-    List()
+    PriorityQueue()
     {
-        size = 0;
-        head = nullptr;
-    }
-    
-    void push_back(T data)
-    {
-        Node * newNode = new Node;
-
-        newNode->data = data;
-
-        if (head == nullptr)
-        {
-            head = newNode;
-
-            newNode->next = head;
-        }
-        else
-        {
-            newNode->next = head->next;
-
-            head->next = newNode;
-
-            head = newNode;
-        }
-
-        size++;
+        index = 0;
+        capacity = 0;
+        container = nullptr;
     }
 
-    void push_front(T data)
+    void resize(int newSize)
     {
-        Node * newNode = new Node;
+        capacity = newSize;
 
-        newNode->data = data;
+        T * temporary = new T[capacity];
 
-        if (head == nullptr)
+        for (int i = 0; i < capacity; i++)
         {
-            head = newNode;
-
-            newNode->next = head;
-        }
-        else
-        {
-            newNode->next = head->next;
-
-            head->next = newNode;
+            temporary[i] = NULL;
         }
 
-        size++;
+        for (int i = 0; i < index; i++)
+        {
+            temporary[i] = container[i];
+        }
+
+        delete[] container;
+
+        container = temporary;
     }
 
-    void pop_front()
+    void push(T data)
     {
-        if (head == nullptr)
+        if (capacity <= 0)
         {
-            cout << "Linked List is empty" << endl;
+            resize(1);
         }
-        else
+        else if (index >= capacity)
         {
-            Node * deleteNode = head->next;
+            resize(capacity * 2);
+        }
 
-            if (size == 1)
+        container[index++] = data;
+
+        int child = index - 1;
+        int parent = (child - 1) / 2;
+
+        while (child > 0)
+        {
+            if (container[parent] < container[child])
             {
-                head = nullptr;
-            }
-            else
-            {
-                head->next = deleteNode->next;
+                std::swap(container[parent], container[child]);
             }
 
-            delete deleteNode;
+            child = parent;
 
-            size--;
+            parent = (child - 1) / 2;
+        }
+    }
+
+    const bool & empty()
+    {
+        return index == 0;
+    }
+
+    const T & top()
+    {
+        if (empty())
+        {
+            exit(1);
+        }
+        else
+        {
+            return container[parent];
+        }
+    }
+
+    ~PriorityQueue()
+    {
+        while (index != 0)
+        {
+
         }
     }
 };
 
 int main()
 {
-    List<int> list;
+    PriorityQueue<int> priorityQueue;
 
-    list.push_back(10);
-    list.push_back(20);
-
-    list.push_front(5);
-    list.push_front(1);
+    priorityQueue.push(10);
+    priorityQueue.push(20);
+    priorityQueue.push(5);
+    priorityQueue.push(33);
 
     return 0;
 }

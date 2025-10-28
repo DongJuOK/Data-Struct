@@ -131,7 +131,7 @@ public:
         }
     }
 
-    const bool& empty()
+    const bool & empty()
     {
         return (head == nullptr);
     }

@@ -5,9 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B32C69A6-C8C4-4F38-9AEB-64F5360DBBE7}|Program.vcxproj|C:\\Users\\user\\Desktop\\Data-Struct\\Program\\Program.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{B32C69A6-C8C4-4F38-9AEB-64F5360DBBE7}|Program.vcxproj|solutionrelative:Program.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4501A895-B3A3-4745-B99C-1BEDF3259F7F}|..\\Class2th (Double Linked List)\\Class2th (Double Linked List).vcxproj|C:\\Users\\user\\Desktop\\Data-Struct\\Class2th (Double Linked List)\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,21 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 206,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Source.cpp",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Data-Struct\\Class2th (Double Linked List)\\Source.cpp",
-              "RelativeDocumentMoniker": "..\\Class2th (Double Linked List)\\Source.cpp",
-              "ToolTip": "C:\\Users\\user\\Desktop\\Data-Struct\\Class2th (Double Linked List)\\Source.cpp",
-              "RelativeToolTip": "..\\Class2th (Double Linked List)\\Source.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-10-20T09:26:30.943Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -40,7 +24,7 @@
               "RelativeDocumentMoniker": "Program.cpp",
               "ToolTip": "C:\\Users\\user\\Desktop\\Data-Struct\\Program\\Program.cpp",
               "RelativeToolTip": "Program.cpp",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAowFsAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAEcAAAAAAAAAAIAwwFwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-10-15T09:48:36.833Z",
               "EditorCaption": ""
