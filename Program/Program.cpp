@@ -2,107 +2,37 @@
 
 using namespace std;
 
-template <typename T>
-class PriorityQueue
+template <typename KEY, typename VALUE>
+class HashTable
 {
 private:
-    int index;
-    int capacity;
+    struct Node
+    {
+        int key;
+        int value;
+        
+        Node * next;
+    };
 
-    T * container;
+    struct Bucket
+    {
+        int size;
+        int capacity;
+
+        Bucket * bucket = new Bucket[8];
+        Bucket * head;
+    };
 
 public:
-    PriorityQueue()
+    HashTable()
     {
-        index = 0;
-        capacity = 0;
-        container = nullptr;
-    }
-
-    void resize(int newSize)
-    {
-        capacity = newSize;
-
-        T * temporary = new T[capacity];
-
-        for (int i = 0; i < capacity; i++)
-        {
-            temporary[i] = NULL;
-        }
-
-        for (int i = 0; i < index; i++)
-        {
-            temporary[i] = container[i];
-        }
-
-        delete[] container;
-
-        container = temporary;
-    }
-
-    void push(T data)
-    {
-        if (capacity <= 0)
-        {
-            resize(1);
-        }
-        else if (index >= capacity)
-        {
-            resize(capacity * 2);
-        }
-
-        container[index++] = data;
-
-        int child = index - 1;
-        int parent = (child - 1) / 2;
-
-        while (child > 0)
-        {
-            if (container[parent] < container[child])
-            {
-                std::swap(container[parent], container[child]);
-            }
-
-            child = parent;
-
-            parent = (child - 1) / 2;
-        }
-    }
-
-    const bool & empty()
-    {
-        return index == 0;
-    }
-
-    const T & top()
-    {
-        if (empty())
-        {
-            exit(1);
-        }
-        else
-        {
-            return container[parent];
-        }
-    }
-
-    ~PriorityQueue()
-    {
-        while (index != 0)
-        {
-
-        }
+        
     }
 };
 
 int main()
 {
-    PriorityQueue<int> priorityQueue;
-
-    priorityQueue.push(10);
-    priorityQueue.push(20);
-    priorityQueue.push(5);
-    priorityQueue.push(33);
+    HashTable<int, int> hashtable;
 
     return 0;
 }
