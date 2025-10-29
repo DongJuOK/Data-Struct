@@ -1,3 +1,13 @@
 ﻿  Program.cpp
-C:\Users\user\Desktop\Data-Struct\Program\Program.cpp(112,1): warning C4172: 지역 변수 또는 임시 의 주소를 반환하는 중
+C:\Users\user\Desktop\Data-Struct\Program\Program.cpp(61,16): warning C4311: '형식 캐스트': 'const char *'에서 'unsigned int'(으)로 포인터가 잘립니다.
+      C:\Users\user\Desktop\Data-Struct\Program\Program.cpp(61,16):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\user\Desktop\Data-Struct\Program\Program.cpp(67,34):
+          컴파일되는 클래스 템플릿 인스턴스화 'HashTable<const char *,int>'에 대한 참조를 확인하세요.
+          C:\Users\user\Desktop\Data-Struct\Program\Program.cpp(50,18):
+          클래스 템플릿 멤버 함수 'unsigned int HashTable<const char *,int>::hash_function<const char*>(const char *)'을(를) 컴파일하는 중입니다.
+              C:\Users\user\Desktop\Data-Struct\Program\Program.cpp(69,46):
+              'main'에서 'HashTable<const char *,int>::hash_function'에 대한 첫 번째 참조를 확인하세요.
+  
+C:\Users\user\Desktop\Data-Struct\Program\Program.cpp(61,16): warning C4302: '형식 캐스트': 'const char *'에서 'unsigned int'(으)로 잘립니다.
   Program.vcxproj -> C:\Users\user\Desktop\Data-Struct\Program\x64\Debug\Program.exe
