@@ -2,176 +2,63 @@
 
 using namespace std;
 
-template <typename KEY, typename VALUE>
-class HashTable
+// 그래프 : 여러 개의 점들이 선으로 연결된 구조를 나타내는 수학적인 개념
+
+// 정점(Vertex) : 그래프에서 하나의 점 (data 저장)
+
+// 간선(Edge) : 그래프에서 노드와 노드를 연결하는 선
+
+// 무방향 그래프 : -- 일자 구조 (진입 진출 동시)
+ 
+// 방향 그래프 : -> 내가 원하는 방향으로
+
+// 차수 : 노드에 연결된 간선의 수
+
+// 진입 차수 : 들어오는 것
+
+// 진출 차수 : 나가는 것
+
+// 사이클 : 그래프에서 동일한 노드로 되돌아오는 경로
+
+// 가중치 : 간선에 저장되어 있는 값
+
+// 그래프의 표현 : 인접 행렬, 인접 리스트
+
+// 인접 행렬 : 2차원 배열로 그래프를 나타내는 자료 구조입니다.
+//            노드의 개수를 N이라고 할 때 N x N 크기의 행렬을
+//            사용하여 노드 사이의 연결 관계를 표현합니다.
+
+//     장점 : 인접한 노드의 존재 여부를 확인하기 쉽고, 간선의 존재 여부를 0(1) 시간에 확인할 수 있다.
+//     단점 : 노드 수가 많고, 간선이 적은 희소 그래프의 경우 메모리를 많이 사용하는 단점이 존재합니다.
+
+template <typename T>
+class Graph
 {
 private:
-    struct Node
-    {
-        KEY key;
-        VALUE value;
-        
-        Node * next;
-    };
+    int size;  // 정점의 개수
+    int count;  // 인접 행렬의 크기
+    int capacity;  // 최대 용량
 
-    struct Bucket
-    {
-        int count;
-        Node * head;
-    };
-
-    int size;
-    int capacity;
-
-    Bucket * bucket;
+    T * vertex;  // 정점의 집합
+    int ** matrix;  // 인접 행렬
 
 public:
-    HashTable()
+    Graph()
     {
         size = 0;
-        capacity = 8;
+        count = 0;
+        capacity = 0;
 
-        bucket = new Bucket[capacity];
-
-        for (int i = 0; i < capacity; i++)
-        {
-            bucket[i].head = nullptr;
-            bucket[i].count = 0;
-        }
+        vertex = nullptr;
+        matrix = nullptr;
     }
 
-    template <typename KEY>
-    unsigned int hash_function(KEY key)
-    {
-        return (unsigned int)key % capacity;
-    }
-
-    template <>
-    unsigned int hash_function(const char * key)
-    {
-        int sum = 0;
-
-        for (int i = 0; *key != '\0'; i++)
-        {
-            sum += key[i];
-
-            key = key + 1;
-        }
-
-        return (unsigned int)key % capacity;
-    }
-
-    void insert(KEY key, VALUE value)
-    {
-        // 해시 함수를 통해서 값을 받는 임시 변수
-        int hashIndex = hash_function(key);
-
-        // 새로운 노드를 생성합니다.
-        Node * newNode = new Node;
-
-        newNode->key = key;
-
-        newNode->value = value;
-
-        newNode->next = nullptr;
-
-        // 노드가 1개라도 존재하지 않는다면
-        if (bucket[hashIndex].count == 0)
-        {
-            // bucket[hashIndex]의 head 포인터가 newNode를 가리키게 합니다.
-            bucket[hashIndex].head = newNode;
-        }
-        else
-        {
-            newNode->next = bucket[hashIndex].head;
-
-            bucket[hashIndex].head = newNode;
-        }
-
-        // bucket[hashIndex]의 count를 증가시킵니다.
-        bucket[hashIndex].count++;
-
-        size++;
-    }
-
-    void erase(KEY key)
-    {
-        // 1. 해시 함수를 통해서 값을 받는 임시 변수
-        int hashIndex = hash_function(key);
-
-        // 2. Node를 탐색할 수 있는 포인터 변수 선언
-        Node * currentNode = bucket[hashIndex].head;
-
-        // 3. 이전 Node를 저장할 수 있는 포인터 변수 선언
-        Node * previousNode = nullptr;
-
-        // 4. currentNode가 nullptr과 같다면 함수를 종료합니다.
-        if (currentNode == nullptr)
-        {
-            cout << "not key found..." << endl;
-        }
-        else
-        {
-            // 5. currentNode를 이용해서 내가 찾고자 하는 key값을 찾습니다.
-            while (currentNode != nullptr)
-            {
-                if (currentNode->key == key)
-                {
-                    if (currentNode == bucket[hashIndex].head)
-                    {
-                        bucket[hashIndex].head = currentNode->next;
-                    }
-                    else
-                    {
-                        previousNode->next = currentNode->next;
-                    }
-
-                    size--;
-
-                    bucket[hashIndex].count--;
-
-                    delete currentNode;
-
-                    return;
-                }
-                else
-                {
-                    previousNode = currentNode;
-
-                    currentNode = currentNode->next;
-                }
-            }
-
-            cout << "not key found..." << endl;
-        }
-    }
-
-    const int& bucket_count()
-    {
-        return capacity;
-    }
-
-    const float & load_factor()
-    {
-        return (float)size / capacity;
-    }
 
 };
 
 int main()
 {
-    HashTable<const char *, int> hashtable;
-
-    hashtable.insert("Abyssal Mask", 3000);
-    hashtable.insert("Bami's Cinder", 1000);
-
-    hashtable.insert("Chain Vest", 800);
-
-    hashtable.erase("Abyssal Mask");
-    hashtable.erase("Galeforce");
-
-    cout << "Load Factor : " << hashtable.load_factor() << endl;
-    cout << "Bucket Count : " << hashtable.bucket_count() << endl;
+    Graph<int> graph;
 
     return 0;
 }
