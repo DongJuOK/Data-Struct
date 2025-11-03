@@ -53,12 +53,83 @@ public:
         matrix = nullptr;
     }
 
+    void push(T data)
+    {
+        if (capacity <= 0)
+        {
+            resize(1);
+        }
+        else if (size >= capacity)
+        {
+            resize(capacity * 2);
+        }
 
+        vertex[size++] = data;
+    }
+
+    void resize(int newSize)
+    {
+        capacity = newSize;
+
+        T * container = new T[capacity];
+
+        for (int i = 0; i < capacity; i++)
+        {
+            container[i] = NULL;
+        }
+
+        for (int i = 0; i < size; i++)
+        {
+            container[i] = vertex[i];
+        }
+
+        delete[] vertex;
+
+        vertex = container;
+    }
+    
+    void edge(int i, int j)
+    {
+        if (size <= 0) // vertex가 존재하지 않을 때
+        {
+            cout << "adjacency matrix is empty" << endl;
+        }
+        else if (size < i || size < j) // vertex가 존재하는 범위보다 더 넓게 간선을 연결했을 때
+        {
+            cout << "index out of range" << endl;
+        }
+        else
+        {
+            count = size;
+
+            matrix = new int * [count];
+
+            for (int i = 0; i < count; i++)
+            {
+                matrix[i] = new int[count];
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                for (int j = 0; j < count; j++)
+                {
+                    matrix[i][j] = 0;
+                }
+            }
+
+            matrix[i][j] = 1;
+            matrix[j][i] = 1;
+        }
+    }
 };
 
 int main()
 {
-    Graph<int> graph;
+    Graph<char> graph;
+
+    graph.push('A');
+    graph.push('B');
+    graph.push('C');
 
     return 0;
 }
