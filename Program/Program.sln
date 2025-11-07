@@ -27,6 +27,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Class10th (Adjacency Matrix
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Class11th (Adjacency List)", "..\Class11th (Adjacency List)\Class11th (Adjacency List).vcxproj", "{AFD3462C-BB5C-486C-A0B1-E386CBE02867}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Class12th (Binary Search Tree)", "..\Class12th (Binary Search Tree)\Class12th (Binary Search Tree).vcxproj", "{B93F29C0-9EFC-47E4-ACCF-FAE7CB1B8B9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -131,6 +133,14 @@ Global
 		{AFD3462C-BB5C-486C-A0B1-E386CBE02867}.Release|x64.Build.0 = Release|x64
 		{AFD3462C-BB5C-486C-A0B1-E386CBE02867}.Release|x86.ActiveCfg = Release|Win32
 		{AFD3462C-BB5C-486C-A0B1-E386CBE02867}.Release|x86.Build.0 = Release|Win32
+		{B93F29C0-9EFC-47E4-ACCF-FAE7CB1B8B9A}.Debug|x64.ActiveCfg = Debug|x64
+		{B93F29C0-9EFC-47E4-ACCF-FAE7CB1B8B9A}.Debug|x64.Build.0 = Debug|x64
+		{B93F29C0-9EFC-47E4-ACCF-FAE7CB1B8B9A}.Debug|x86.ActiveCfg = Debug|Win32
+		{B93F29C0-9EFC-47E4-ACCF-FAE7CB1B8B9A}.Debug|x86.Build.0 = Debug|Win32
+		{B93F29C0-9EFC-47E4-ACCF-FAE7CB1B8B9A}.Release|x64.ActiveCfg = Release|x64
+		{B93F29C0-9EFC-47E4-ACCF-FAE7CB1B8B9A}.Release|x64.Build.0 = Release|x64
+		{B93F29C0-9EFC-47E4-ACCF-FAE7CB1B8B9A}.Release|x86.ActiveCfg = Release|Win32
+		{B93F29C0-9EFC-47E4-ACCF-FAE7CB1B8B9A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
